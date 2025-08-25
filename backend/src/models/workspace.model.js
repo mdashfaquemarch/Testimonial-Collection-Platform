@@ -38,7 +38,12 @@ const workspaceSchema = new mongoose.Schema({
     },
     redirectURL: {
         type: String
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
+    
 }, {timestamps: true});
 
 const Workspace = mongoose.model("Workspace", workspaceSchema);

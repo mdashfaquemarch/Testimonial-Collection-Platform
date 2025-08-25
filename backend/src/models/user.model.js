@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema({
 
 
 
-
+userSchema.pre("save", async function (next) {
+  // generate unique avatar using our name
+  this.avatar = `https://robohash.org/${this.name}`
+  next()
+})
 
 const User = mongoose.model("User", userSchema);
 
