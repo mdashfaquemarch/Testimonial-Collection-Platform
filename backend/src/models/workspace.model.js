@@ -20,11 +20,11 @@ const workspaceSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    // theme: {
-    //     type: String,
-    //     enum: ["DARK", "LIGHT"],
-    //     default: "LIGHT"
-    // },
+    theme: {
+        type: String,
+        enum: ["DARK", "LIGHT"],
+        default: "LIGHT"
+    },
     thankYouTitle: {
         type: String,
         default: "Thank You"
@@ -41,7 +41,8 @@ const workspaceSchema = new mongoose.Schema({
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     }
     
 }, {timestamps: true});
