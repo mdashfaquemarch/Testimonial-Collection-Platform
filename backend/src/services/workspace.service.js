@@ -3,9 +3,18 @@ const {WorkspaceRepository} = require("../repositories/index.js")
 
 const workspaceRepo = new WorkspaceRepository();
 
-async function createWorkspaceService(data) {
+async function createWorkspaceService(data, filesDetails, user) {
     try {
+         console.log("data", data, filesDetails?.workspaceLogo[0].path);
+        console.log("data", data, filesDetails?.thanYouLogo[0].path);
         
+         const userId = user._id;
+
+        const createdWorkspace = await workspaceRepo.create();
+
+
+
+        return createdWorkspace;
     } catch (error) {
         console.log(error);
     }

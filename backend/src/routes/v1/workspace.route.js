@@ -1,10 +1,11 @@
 const express = require("express");
 const { workspace } = require("../../controllers/index.js");
-const upload = require("../../middlewares/multer.middleware.js")
+const upload = require("../../middlewares/multer.middleware.js");
+const isAuth = require("../../middlewares/isAuth.middleware.js");
 
 const router = express.Router();
 
-router.post("/", upload.fields([
+router.post("/",isAuth, upload.fields([
     {
         name: 'workspaceLogo',
         maxCount: 1

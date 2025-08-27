@@ -5,7 +5,7 @@ dotenv.config();
 const passport = require("passport");
 const User = require("../models/user.model.js");
 
-console.log(process.env.GOOGLE_CLIENT_ID)
+
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
