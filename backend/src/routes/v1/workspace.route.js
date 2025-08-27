@@ -1,9 +1,19 @@
 const express = require("express");
 const { workspace } = require("../../controllers/index.js");
+const upload = require("../../middlewares/multer.middleware.js")
 
 const router = express.Router();
 
-router.post("/", workspace.createWorkspaceController);
+router.post("/", upload.fields([
+    {
+        name: 'workspaceLogo',
+        maxCount: 1
+    },
+    {
+        name: "thanYouLogo",
+        maxCount: 1
+    }
+]), workspace.createWorkspaceController);
 
 router.get("/:workspaceId", workspace.getWorkspaceByIdController);
 

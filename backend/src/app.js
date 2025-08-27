@@ -4,6 +4,9 @@ require("./config/passport.config.js")
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 
+// routes import
+const apiRoutes = require("./routes/index.js")
+
 
 const app = express();
 
@@ -45,5 +48,8 @@ app.get('/auth/google/callback',
 
     // res.json({user, accessToken});
   });
+
+
+  app.use("/api", apiRoutes);
 
 module.exports = app;

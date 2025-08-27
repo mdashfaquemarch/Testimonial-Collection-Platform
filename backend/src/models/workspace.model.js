@@ -33,7 +33,7 @@ const workspaceSchema = new mongoose.Schema({
         type: String,
         default: "Thank you so much for your shoutout! It means a ton for us! 🙏"
     },
-    thanYouLogo: {
+    thanYouLogo: { // image
         type: String
     },
     redirectURL: {
