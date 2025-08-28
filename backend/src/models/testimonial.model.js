@@ -1,27 +1,34 @@
 const mongoose = require("mongoose");
 
 const testimonialSchema = new mongoose.Schema({
-    name: {
+    firstname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    lastname: {
         type: String,
         required: true,
         trim: true
     },
     email: {
         type: String,
+        unique: true,
+        trim: true,
         required: true,
-        unique: true
     },
     text: { // testimonial
-      type: String,
-      required: true,
-      trim: true
+        type: String,
+        required: true,
+        trim: true
     },
-    uploadYourPhoto: {  // if not user their Name 
-       type: String,
+    photo: {  // if not user their Name 
+        type: String,
     },
     rating: { // max - 5
         type: Number,
         required: true,
+        max: 5,
         default: 1
     },
     social: {
@@ -29,14 +36,15 @@ const testimonialSchema = new mongoose.Schema({
     },
     workspace: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Workspace"
+        ref: "Workspace",
+        required: true
     },
     permission: { // I give permission to use this testimonial across social channels and other marketing efforts
         type: Boolean,
-        require: true,
-        default: false
+        default: false,
+        require: true
     },
-}, {timestamps: true});
+}, { timestamps: true });
 
 const Testimonial = mongoose.Schema("Testimonial", testimonialSchema);
 

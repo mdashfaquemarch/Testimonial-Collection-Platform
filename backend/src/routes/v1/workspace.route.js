@@ -16,13 +16,13 @@ router.post("/",isAuth, upload.fields([
     }
 ]), workspace.createWorkspaceController);
 
-router.get("/:workspaceId", workspace.getWorkspaceByIdController);
+router.get("/:workspaceId",isAuth, workspace.getWorkspaceByIdController);
 
 // get all workspace of a user
-router.get("/:userId", workspace.getAllWorkspaceOfUserController);
+router.get("/",isAuth, workspace.getAllWorkspaceOfUserController);
 
-router.delete("/:workspaceId", workspace.deleteWorkspaceController);
+router.delete("/:workspaceId", isAuth, workspace.deleteWorkspaceController);
 
-router.put("/:workspaceId", workspace.updateWorkspaceDetailController);
+router.put("/:workspaceId", isAuth, workspace.updateWorkspaceDetailController);
 
 module.exports = router;

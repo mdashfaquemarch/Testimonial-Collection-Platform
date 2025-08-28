@@ -34,7 +34,8 @@ const workspaceSchema = new mongoose.Schema({
         default: "Thank you so much for your shoutout! It means a ton for us! 🙏"
     },
     thanYouLogo: { // image
-        type: String
+        type: String,
+        default: "https://res.cloudinary.com/dbavai0kn/image/upload/v1756318879/giphy_wefvp8.gif"
     },
     redirectURL: {
         type: String

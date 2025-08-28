@@ -31,7 +31,8 @@ async function createWorkspaceController(req, res, next) {
 
         return res.status(201).json({
             success: true,
-
+            data: response,
+            message: "successfully created workspace"
         })
     } catch (error) {
         console.log(error);
@@ -40,25 +41,38 @@ async function createWorkspaceController(req, res, next) {
 
 async function getWorkspaceByIdController(req, res, next) {
     try {
-
+    
     } catch (error) {
-
+        console.log(error);
     }
 }
 
 async function getAllWorkspaceOfUserController(req, res, next) {
     try {
+         console.log(req.user);
+        const response = await workspace.getAllWorkspaceOfUserService(req.user._id);
+
+        return res.status(200).json({
+            success: true,
+            data: response,
+            message: "user workspaces fetched successfully"
+        })
 
     } catch (error) {
-
+        console.log(error);
     }
 }
 
 async function deleteWorkspaceController(req, res, next) {
     try {
-
+        const response = await workspace.deleteWorkspaceService(req.params.workspaceId);
+        return res.status(200).json({
+            success: true,
+            data: response,
+            message: "workspace deleted successfully"
+        })
     } catch (error) {
-
+        console.log(error);
     }
 }
 

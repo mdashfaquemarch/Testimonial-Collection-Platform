@@ -16,6 +16,11 @@ class CrudRepository {
         return doc;
     }
 
+    async findByName(data) {
+        const doc = await this.model.findOne(data);
+        return doc;
+    }
+
     async update(id, data) {
         const doc = await this.model.findByIdAndUpdate(id, data);
         return doc;
